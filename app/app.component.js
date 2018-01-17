@@ -20,8 +20,11 @@ var AppComponent = (function () {
             new Task('Add README file to last few Angular repos on GitHub', 2)
         ];
     }
-    AppComponent.prototype.editTask = function () {
-        alert("you just edited!");
+    AppComponent.prototype.editTask = function (clickedTask) {
+        this.selectedTask = clickedTask;
+    };
+    AppComponent.prototype.finishedEditing = function () {
+        this.selectedTask = null;
     };
     AppComponent.prototype.isDone = function (clickedTask) {
         if (clickedTask.done === true) {
@@ -47,7 +50,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: "\n  <div class=\"container\">\n    <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>\n    <h3>{{currentFocus}}</h3>\n    <ul>\n    <li [class]=\"priorityColor(currentTask)\" (click)=\"isDone(currentTask)\" *ngFor=\"let currentTask of tasks\">{{currentTask.description}}  <button (click)=\"editTask()\">Edit!</button></li>\n    </ul>\n  </div>\n  "
+        template: "\n  <div class=\"container\">\n    <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>\n    <h3>{{currentFocus}}</h3>\n    <ul>\n      <li [class]=\"priorityColor(currentTask)\" (click)=\"isDone(currentTask)\" *ngFor=\"let currentTask of tasks\">{{currentTask.description}} <button (click)=\"editTask(currentTask)\">Edit!</button></li>\n    </ul>\n    <hr>\n    <div *ngIf=\"selectedTask\">\n      <h3>{{selectedTask.description}}</h3>\n      <p>Task Complete? {{selectedTask.done}}</p>\n      <h3>Edit Task</h3>\n      <label>Enter Task Description:</label>\n      <input [(ngModel)]=\"selectedTask.description\">\n      <label>Enter Task Priority (1-3):</label>\n      <br>\n      <input type=\"radio\" [(ngModel)]=\"selectedTask.priority\" [value]=\"1\">1 (Low Priority)<br>\n      <input type=\"radio\" [(ngModel)]=\"selectedTask.priority\" [value]=\"2\">2 (Medium Priority)<br>\n      <input type=\"radio\" [(ngModel)]=\"selectedTask.priority\" [value]=\"3\">3 (High Priority)\n      <button (click)=\"finishedEditing()\">Done</button>\n   </div>\n   </div>\n  "
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;

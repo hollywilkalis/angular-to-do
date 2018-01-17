@@ -43,5 +43,16 @@
     "lite-server": "2.2.2",
     "typescript": "2.2.2",
     "typings": "1.3.2"
-  }
+  },
+  "main": "gulpfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hollywilkalis/angular-to-do.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/hollywilkalis/angular-to-do/issues"
+  },
+  "homepage": "https://github.com/hollywilkalis/angular-to-do#readme",
+  "description": ""
 }
