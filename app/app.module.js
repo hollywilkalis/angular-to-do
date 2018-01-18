@@ -10,6 +10,10 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var app_component_1 = require("./app.component");
 var forms_1 = require("@angular/forms");
+var task_list_component_1 = require("./task-list.component");
+var edit_task_component_1 = require("./edit-task.component");
+var new_task_component_1 = require("./new-task.component");
+var completeness_pipe_1 = require("./completeness.pipe");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -18,7 +22,7 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule],
-        declarations: [app_component_1.AppComponent],
+        declarations: [app_component_1.AppComponent, task_list_component_1.TaskListComponent, edit_task_component_1.EditTaskComponent, new_task_component_1.NewTaskComponent, completeness_pipe_1.CompletenessPipe],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
